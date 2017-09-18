@@ -11,14 +11,6 @@ def new_post(request):
         form = PostForm()
         return render(request, 'blog/newpost.html', {'form': form})
 
-    if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('post-list')
-        else:
-            return render(request, 'blog/newpost.html', {'form': form})
-
 
 def post_list(request):
     """Return a list of posts."""
