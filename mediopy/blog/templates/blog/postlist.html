@@ -2,15 +2,15 @@
 
 {% block content %}
 <div class="container" style="padding-top: 10px;">
-    <div class="row">
-        <div class="col">
-            <h1>Posts</h1>
+        {% for post in posts %}
+        <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="http://lorempixel.com/400/200" alt="Card image cap">
+                <div class="card-body">
+                    <h4 class="card-title">{{ post.title }}</h4>
+                    <p class="card-text">{{ post.content|safe}}</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
         </div>
-        <div class="col">
-            {% for post in posts %}
-            <h2>{{post.title}}</h2>
-            {% endfor %}
-        </div>
-    </div>
+        {% endfor %}
 </div>
 {% endblock %}
